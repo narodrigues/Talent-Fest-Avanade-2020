@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html>
+  <html>
+    <head>
+      <title>Face Login</title>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
-  <head>
-    <title>Face Login</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css">
-  </head>
+    <body>
+      <main>
+        <header class="box">
+          <img class="logotype" src="assets/avanade-logo.png">
+        </header>
 
-  <body>
-    <main>
-      <header class="box">
-        <img class="logotype" src="assets/avanade-logo.png">
-      </header>
+        <div id='video-wrap' class="box div-video">
+          <div class="align-video-info">
+            <video id='video' class='video-tag' autoplay muted></video>
 
-      <div id='video-wrap' class="box">
-        <video id='video' autoplay muted />
-        <video>
-        </div>	
-        <!-- Webcam snapshot -->
+            <div class="modal-div">
+              <i class="fas fa-info-circle infos"></i>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Dicas ao tirar sua foto</h2>
+                  </div>
+                  <div class="modal-body">
+                    <p>Face frontal livre</p> 
+                    <p>Não utilizar óculos escuros</p> 
+                    <p>Tente garantir que haja boa iluminação</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
         <div class="box">
           <canvas id='canvas' width="640" height="520"></canvas>
         </div>
-        <p id='login-error' class="color-error"></p>  
-      <div id='controller'>
-        <button id='snap'>Login</button>
-      </div>
 
-      <div class="image">
-        <img class="img" src="assets/WavesTrim_Aurora_Full-RGB2.png">
-      </div>
-    </main>
+        <p id='login-error' class="color-error"></p>  
+
+        <div id='controller'>
+          <button id='snap'>Login</button>
+        </div>
+      </main>
       
       <script src="index.js" type="module"></script>
+      <script src="https://kit.fontawesome.com/11e9e029cd.js" crossorigin="anonymous"></script>
       
       <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
