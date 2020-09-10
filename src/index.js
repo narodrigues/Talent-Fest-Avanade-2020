@@ -68,7 +68,7 @@ const messageToUser = (userData) => {
   const userName = userData.name
   video.style.display = 'none';
   snap.style.display = 'none';
-  infoLogin.classList.add('color-error')
+  infoLogin.classList.add('login-message')
   infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`
 }
 
@@ -90,17 +90,15 @@ const getFaceId = url => {
   fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise", requestOptions)
     .then(response => response.json())
     .then(result => validateImage(result))
-    .catch(()=> {
+    .catch(() => {
       document.getElementById('login-error').innerHTML = 'Não foi possível efetuar o login.'
     })
-    
-    
+
+
 }
 
 function validateImage(result) {
-  console.log(result)
   const resultImage = result[0].faceId
-  console.log(typeof (resultImage))
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");

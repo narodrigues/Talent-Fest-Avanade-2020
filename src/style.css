@@ -39,11 +39,15 @@ body {
   display: flex;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.6em
+  font-size: 1.6em;
 }
 
-.color-error{
-  color:#C80000
+.color-error {
+  color: #C80000
+}
+
+.login-message {
+  color: #4c4c4c
 }
 
 #controller {
