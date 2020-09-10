@@ -1,3 +1,4 @@
+//const fs = require('fs')
 //Manipulação do dom
 const video = document.querySelector("#video");
 const canvas = document.querySelector("#canvas");
@@ -31,7 +32,23 @@ const toDrawCapturedSnap = () => {
   const dataURI = canvas.toDataURL("image/jpeg", 0.7);
   //como obter uma url da imagem armazenada em dataURI?
   //salvar no firebase?
-};
+  
+  var teste = new Buffer(dataURI.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
+  console.log(teste)
+}
+
+/* function decodeBase64Image(dataString) {
+  var matches = dataString.match(/^data:image\/(png|gif|jpeg);base64,/, ''),
+    response = {};
+
+  response.data = new Buffer(matches, 'base64');
+
+  return response;
+}
+
+var imageBuffer = decodeBase64Image(dataURI);
+console.log(imageBuffer);
+}; */
 
 //Atribuir captura com o click
 snap.addEventListener("click", toDrawCapturedSnap);

@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Parcel Sandbox</title>
+    <title>Face Login</title>
     <meta charset="UTF-8" />
   </head>
 
@@ -19,7 +19,30 @@
 	<! -- Webcam snapshot -->
 	<canvas id='canvas' width="500" height="500"></canvas>
 	
-	<script src="index.js" type="module"></script>
+  <script src="index.js" type="module"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
+      authDomain: "talent-avanade.firebaseapp.com",
+      databaseURL: "https://talent-avanade.firebaseio.com",
+      projectId: "talent-avanade",
+      storageBucket: "talent-avanade.appspot.com",
+      messagingSenderId: "331987033642",
+      appId: "1:331987033642:web:2328eda6b243569713ed53"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
 </body>
 
 </html>
