@@ -19,6 +19,7 @@
   "homepage": "https://github.com/narodrigues/Talent-Fest-Avanade-2020#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^7.19.1",
     "serve": "^11.3.2"
   }
 }
