@@ -64,7 +64,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+<<<<<<< HEAD
+=======
 
 
 # configure-firebase
 .configure-firebase.js
+>>>>>>> 35596a4087f9bf2f8aee3ce092e4860f2827319d
