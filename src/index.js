@@ -1,10 +1,24 @@
-//const fs = require('fs')
-//Manipulação do dom
 const video = document.querySelector("#video");
 const canvas = document.querySelector("#canvas");
 const snap = document.querySelector("#snap");
+const infoLogin = document.querySelector("#login-error");
+const modal = document.getElementById("myModal");
+const btn = document.querySelector(".infos");
+const span = document.getElementsByClassName("close")[0];
 
-//Renderizar imagem da webcam no navegador
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 async function init() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -14,60 +28,50 @@ async function init() {
   }
 }
 
-// Função para sucesso
-const handleSuccess = (stream) => {
+const handleSuccess = stream => {
   window.stream = stream;
   video.srcObject = stream;
 };
 
-// Função para desenhar imagem na tela
 const toDrawCapturedSnap = () => {
-  var context = canvas.getContext("2d");
-  //desenhar canvas (x,y,width, height)
+  const context = canvas.getContext("2d");
+
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  //Transformar canva em imagem jpeg com qualidade 0.7
   const dataURI = canvas.toDataURL("image/jpeg", 0.7);
-
   const getRef = firebase.storage().ref('photos')
   const renameImg = getRef.child(`${new Date().getTime()}.jpeg`)
   renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => getFaceId(url)))
 };
 
-
-//----- MANIPULAÇÃO DA API
-
-const getNameUser = (response) => {
-  //Identificação única do usuário
+const getNameUser = response => {
   const personId = response[0].candidates[0].personId
-
-  //Endpoint da requisição fetch
   const url = `https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/persongroups/laboratoria/persons/${personId}`
+  const myHeaders = new Headers();
 
-  //Headers da requisição fetch
-  var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
 
-  //Parâmetros da requisição fetch
-  var requestOptions = {
+  const requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
   };
 
-  //Requisição
   fetch(url, requestOptions)
     .then(response => response.json())
     .then(user => messageToUser(user))
     .catch(error => console.log('error', error));
 }
-
-const messageToUser = (userData) => {
+const messageToUser = userData => {
+  const modal = document.querySelector('.modal-div')
   const userName = userData.name
-  console.log(`Que bom ver você novamente, ${userName}! (:`)
+  video.style.display = 'none';
+  snap.style.display = 'none';
+  infoLogin.classList.add('login-message')
+  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`
+  modal.style.display = 'none';
 }
-
 
 const getFaceId = url => {
   const myHeaders = new Headers();
@@ -86,13 +90,13 @@ const getFaceId = url => {
   fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise", requestOptions)
     .then(response => response.json())
     .then(result => validateImage(result))
-    .catch(error => console.log('error', error));
+    .catch(() => {
+      document.getElementById('login-error').innerHTML = 'Não foi possível efetuar o login.'
+    })
 }
 
-function validateImage(result) {
-  console.log(result)
+const validateImage = result => {
   const resultImage = result[0].faceId
-  console.log(typeof (resultImage))
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
@@ -111,8 +115,6 @@ function validateImage(result) {
     .then(result => getNameUser(result))
     .catch(error => console.log('error', error));
 }
-//Atribuir captura com o click
 snap.addEventListener("click", toDrawCapturedSnap);
 
-//Iniciar com o carregamento da página!
 window.onload = init();
