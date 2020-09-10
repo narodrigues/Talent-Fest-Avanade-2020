@@ -16,25 +16,27 @@ body{
 }
 
 .video-tag {
-  width: 570px;
+  height: 35vh;
 }
 
 .div-video {
-  align-items: flex-start !important;
-  display: grid !important;
-  grid-template-columns: 570px 40px;
-  margin: 20px 50px;
+  margin: 20px 0;;
 }
 
 .box {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.align-video-info {
   position: relative;
 }
 
 .modal-div {
-  margin: 0 auto;
+  position: absolute;
+  right: -30px;
+  top: 0;
 }
 
 img.img {
@@ -104,10 +106,11 @@ img.img {
   border: 1px solid #888;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  height: 300px;
   margin: auto;
   padding: 0;
   position: relative;
-  width: 80%;
+  width: 700px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
 }
@@ -150,5 +153,9 @@ img.img {
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 20px 16px;
+}
+
+.modal-body p {
+  padding: 10px;
 }
