@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.logotype,
+#video,
+#canvas {
+  width: 35%;
+}
+
+.logotype {
+  margin-left: 5%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  position: absolute;
+  top: 0px;
+}
+
+#snap {
+  background: #A50646;
+  border-radius: 5px;
+  width: 35%;
+  padding: 10px;
+  font-weight: bold;
+  color: #F2F2F2;
+  border-style: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.6em
+}
+
+#controller {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+}

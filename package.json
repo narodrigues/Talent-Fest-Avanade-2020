@@ -1,0 +1,23 @@
+{
+  "name": "talent-fest-avanade-2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narodrigues/Talent-Fest-Avanade-2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narodrigues/Talent-Fest-Avanade-2020/issues"
+  },
+  "homepage": "https://github.com/narodrigues/Talent-Fest-Avanade-2020#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
