@@ -33,9 +33,51 @@ const toDrawCapturedSnap = () => {
 
   const getRef = firebase.storage().ref('photos')
   const renameImg = getRef.child(`${new Date().getTime()}.jpeg`)
-  renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => console.log(url)))
+  renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => getFaceId(url)))
 };
 
+const getFaceId = url => {
+  const myHeaders = new Headers();
+  myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
+  myHeaders.append("Content-Type", "application/json");
+  
+  const raw = JSON.stringify({"url": url});
+  
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise", requestOptions)
+    .then(response => response.json())
+    .then(result => validateImage(result))
+    .catch(error => console.log('error', error));
+}
+
+function validateImage(result) {
+  console.log(result)
+  const resultImage = result[0].faceId
+  console.log(typeof(resultImage))
+  var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
+
+var raw = JSON.stringify({"personGroupId":"laboratoria","faceIds": [resultImage],"maxNumOfCandidatesReturned":1,"confidenceThreshold":0.5});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/identify", requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
 //Atribuir captura com o click
 snap.addEventListener("click", toDrawCapturedSnap);
 
