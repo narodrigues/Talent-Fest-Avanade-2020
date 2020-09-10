@@ -23,7 +23,7 @@ const handleSuccess = (stream) => {
 const toDrawCapturedSnap = () => {
   var context = canvas.getContext("2d");
   //desenhar canvas (x,y,width, height)
-  context.drawImage(video, 10, 10, canvas.width, canvas.height);
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
   //testar se deu certo fazendo download da imagem com botao direito
   //formato default: png
 
