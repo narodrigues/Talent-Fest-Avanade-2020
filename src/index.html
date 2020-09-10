@@ -1,48 +1,61 @@
 <!DOCTYPE html>
-<html>
+  <html>
+    <head>
+      <title>Face Login</title>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="style.css">
+    </head>
 
+<<<<<<< HEAD
   <head>
     <title>Face Login</title>
     <meta charset="UTF-8" />
   </head>
+=======
+    <body>
+      <main>
+        <header class="box">
+          <img class="logotype" src="assets/avanade-logo.png">
+        </header>
+>>>>>>> 35596a4087f9bf2f8aee3ce092e4860f2827319d
 
-  <body>
-    <div id='video-wrap'>
-      <video id='video' autoplay width='250' height="250" muted />
-      <video>
-  </div>	
-	<! -- Gatilho para captura da imagem -->
-	<div id='controller'>
-		<button id='snap'>Capturar</button>
-	</div>
+        <div id='video-wrap' class="box">
+          <video id='video' autoplay muted />
+          <video>
+        </div>	
+        <!-- Webcam snapshot -->
+        <div class="box">
+          <canvas id='canvas' width="640" height="520"></canvas>
+        </div>
 
-	<! -- Webcam snapshot -->
-	<canvas id='canvas' width="500" height="500"></canvas>
-	
-  <script src="index.js" type="module"></script>
-  
-  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script> -->
-  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <div id='controller'>
+        <button id='snap'>Login</button>
+      </div>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
-      authDomain: "talent-avanade.firebaseapp.com",
-      databaseURL: "https://talent-avanade.firebaseio.com",
-      projectId: "talent-avanade",
-      storageBucket: "talent-avanade.appspot.com",
-      messagingSenderId: "331987033642",
-      appId: "1:331987033642:web:2328eda6b243569713ed53"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+      <div class="image">
+        <img class="img" src="assets/WavesTrim_Aurora_Full-RGB2.png">
+      </div>
+    </main>
+      
+      <script src="index.js" type="module"></script>
+      
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-</body>
-
-</html>
+      <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
+          authDomain: "talent-avanade.firebaseapp.com",
+          databaseURL: "https://talent-avanade.firebaseio.com",
+          projectId: "talent-avanade",
+          storageBucket: "talent-avanade.appspot.com",
+          messagingSenderId: "331987033642",
+          appId: "1:331987033642:web:2328eda6b243569713ed53"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+    </body>
+  </html>

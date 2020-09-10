@@ -24,31 +24,17 @@ const handleSuccess = (stream) => {
 const toDrawCapturedSnap = () => {
   var context = canvas.getContext("2d");
   //desenhar canvas (x,y,width, height)
-  context.drawImage(video, 10, 10, canvas.width, canvas.height);
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
   //testar se deu certo fazendo download da imagem com botao direito
   //formato default: png
 
   //Transformar canva em imagem jpeg com qualidade 0.7
   const dataURI = canvas.toDataURL("image/jpeg", 0.7);
-  //como obter uma url da imagem armazenada em dataURI?
-  //salvar no firebase?
-  
-  var teste = new Buffer(dataURI.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
-  console.log(teste)
-}
 
-/* function decodeBase64Image(dataString) {
-  var matches = dataString.match(/^data:image\/(png|gif|jpeg);base64,/, ''),
-    response = {};
-
-  response.data = new Buffer(matches, 'base64');
-
-  return response;
-}
-
-var imageBuffer = decodeBase64Image(dataURI);
-console.log(imageBuffer);
-}; */
+  const getRef = firebase.storage().ref('photos')
+  const renameImg = getRef.child(`${new Date().getTime()}.jpeg`)
+  renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => console.log(url)))
+};
 
 //Atribuir captura com o click
 snap.addEventListener("click", toDrawCapturedSnap);
