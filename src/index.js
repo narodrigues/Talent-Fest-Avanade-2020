@@ -90,9 +90,7 @@ const getFaceId = url => {
 }
 
 function validateImage(result) {
-  console.log(result)
   const resultImage = result[0].faceId
-  console.log(typeof (resultImage))
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
