@@ -29,8 +29,10 @@ const toDrawCapturedSnap = () => {
 
   //Transformar canva em imagem jpeg com qualidade 0.7
   const dataURI = canvas.toDataURL("image/jpeg", 0.7);
-  //como obter uma url da imagem armazenada em dataURI?
-  //salvar no firebase?
+
+  const getRef = firebase.storage().ref('photos')
+  const renameImg = getRef.child(`${new Date().getTime()}.jpeg`)
+  renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => console.log(url)))
 };
 
 //Atribuir captura com o click
