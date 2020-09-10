@@ -7,7 +7,7 @@ body {
 .logotype,
 #video,
 #canvas {
-  width: 20%;
+  width: 25%;
   margin: 20px auto;
 }
 
@@ -18,14 +18,13 @@ body {
 }
 
 #canvas {
-  position: absolute;
-  top: 0px;
+  display: none
 }
 
 #snap {
   background: #A50646;
   border-radius: 5px;
-  width: 20%;
+  width: 25%;
   padding: 10px;
   font-weight: bold;
   color: #F2F2F2;
