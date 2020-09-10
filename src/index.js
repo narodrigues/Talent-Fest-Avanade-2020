@@ -60,23 +60,23 @@ function validateImage(result) {
   console.log(result)
   const resultImage = result[0].faceId
   console.log(typeof(resultImage))
-  var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
 
-var raw = JSON.stringify({"personGroupId":"laboratoria","faceIds": [resultImage],"maxNumOfCandidatesReturned":1,"confidenceThreshold":0.5});
+  const raw = JSON.stringify({"personGroupId":"laboratoria","faceIds": [resultImage],"maxNumOfCandidatesReturned":1,"confidenceThreshold":0.5});
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
 
-fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/identify", requestOptions)
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/identify", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
 //Atribuir captura com o click
 snap.addEventListener("click", toDrawCapturedSnap);
