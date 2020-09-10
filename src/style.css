@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-y: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logotype,
@@ -34,10 +35,26 @@ body {
   font-size: 1.6em
 }
 
+#login-error {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.color-error {
+  color: #C80000
+}
+
+.login-message {
+  color: #4c4c4c
+}
+
 #controller {
   margin: 30px auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .img {

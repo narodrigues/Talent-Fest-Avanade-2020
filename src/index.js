@@ -3,6 +3,7 @@
 const video = document.querySelector("#video");
 const canvas = document.querySelector("#canvas");
 const snap = document.querySelector("#snap");
+const infoLogin = document.querySelector("#login-error");
 
 //Renderizar imagem da webcam no navegador
 async function init() {
@@ -65,7 +66,10 @@ const getNameUser = (response) => {
 
 const messageToUser = (userData) => {
   const userName = userData.name
-  console.log(`Que bom ver você novamente, ${userName}! (:`)
+  video.style.display = 'none';
+  snap.style.display = 'none';
+  infoLogin.classList.add('login-message')
+  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`
 }
 
 
@@ -86,7 +90,11 @@ const getFaceId = url => {
   fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise", requestOptions)
     .then(response => response.json())
     .then(result => validateImage(result))
-    .catch(error => console.log('error', error));
+    .catch(() => {
+      document.getElementById('login-error').innerHTML = 'Não foi possível efetuar o login.'
+    })
+
+
 }
 
 function validateImage(result) {
