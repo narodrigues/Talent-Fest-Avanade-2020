@@ -64,12 +64,15 @@ const getNameUser = response => {
     .catch(error => console.log('error', error));
 }
 const messageToUser = userData => {
-  const modal = document.querySelector('.modal-div')
+  const modal = document.querySelector('.modal-div');
+  const register = document.querySelector('.register-div');
+  
   const userName = userData.name
   video.style.display = 'none';
   snap.style.display = 'none';
-  infoLogin.classList.add('login-message')
-  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`
+  infoLogin.classList.add('login-message');
+  register.style.display = 'none';
+  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`;
   modal.style.display = 'none';
 }
 

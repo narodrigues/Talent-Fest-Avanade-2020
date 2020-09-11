@@ -11,11 +11,10 @@
       <main>
         <header class="box">
           <img class="logotype" src="assets/avanade-logo.png">
+          <div class="register-div">
+            <button class='btn-home'><a href="./index.html" class='home-page'>Voltar</a></button>
+          </div>
         </header>
-
-        <div class="register-div">
-          <button><a href="./index.html" class='register'>Voltar</a></button>
-        </div>
 
         <div id='video-wrap' class="box div-video">
           <div class="align-video-info">
@@ -28,7 +27,7 @@
         </div>
 
         <form class="get-name">
-          <label for="name">Digite seu nome</label><br>
+          <label for="name" class="label-name">Digite seu nome</label><br>
           <input type="text" id="name" name="name" class="input-name">
         </form>
 
@@ -40,5 +39,23 @@
       </main>
       
       <script src="register.js" type="module"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+      <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
+          authDomain: "talent-avanade.firebaseapp.com",
+          databaseURL: "https://talent-avanade.firebaseio.com",
+          projectId: "talent-avanade",
+          storageBucket: "talent-avanade.appspot.com",
+          messagingSenderId: "331987033642",
+          appId: "1:331987033642:web:2328eda6b243569713ed53"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
     </body>
   </html>

@@ -29,12 +29,11 @@ const toDrawCapturedSnap = () => {
 
     const getRef = firebase.storage().ref('photos')
     const renameImg = getRef.child(`${new Date().getTime()}.jpeg`)
-    renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => getFaceId(url, getName.value)))
+    renameImg.putString(dataURI, 'data_url').then(() => renameImg.getDownloadURL().then(url => registerUser(url, getName.value)))
   } else {
     alert('Digite o seu nome')
   }
 };
-
 
 const registerUser = (url, username) => {
   const myHeaders = new Headers();
@@ -51,19 +50,17 @@ const registerUser = (url, username) => {
   };
 
   fetch("https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/persongroups/laboratoria/persons", requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => sendPhoto(url, result))
     .catch(error => console.log('error', error));
 }
 
 const sendPhoto = (url, result) => {
-  console.log(url)
-  console.log(result)
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Ocp-Apim-Subscription-Key", "47261e48623f48d285178161fb892cb8");
   
-  const raw = JSON.stringify({"url": result});
+  const raw = JSON.stringify({"url": url});
   
   const requestOptions = {
     method: 'POST',
@@ -72,7 +69,7 @@ const sendPhoto = (url, result) => {
     redirect: 'follow'
   };
   
-  fetch(`https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/persongroups/laboratoria/persons/${url}/persistedFaces`, requestOptions)
+  fetch(`https://facelaboratoria2.cognitiveservices.azure.com/face/v1.0/persongroups/laboratoria/persons/${result.personId}/persistedFaces`, requestOptions)
     .then(response => response.text())
     .then(() => train())
     .catch(error => console.log('error', error));
@@ -100,8 +97,13 @@ const train = () => {
 }
 
 const messageToUser = () => {
+  const getName = document.querySelector('.get-name');
+
   video.style.display = 'none';
   snap.style.display = 'none';
+  getName.style.display = 'none';
   infoLogin.classList.add('login-message')
   infoLogin.innerHTML = `Bem-vindx à equipe! (:`
 }
+
+window.onload = init();
