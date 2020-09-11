@@ -1,73 +1,80 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Face Login</title>
-      <meta charset="UTF-8" />
-      <link rel="stylesheet" href="style.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html>
 
-    <body>
-      <main>
-        <header class="box">
-          <img class="logotype" src="assets/avanade-logo.png">
-        </header>
+  <head>
+    <title>Face Login</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
 
-        <div id='video-wrap' class="box div-video">
-          <div class="align-video-info">
-            <video id='video' class='video-tag' autoplay muted></video>
+  <body>
+    <main>
+      <header class="box">
+        <img class="logotype" src="assets/avanade-logo.png">
+      </header>
+      <div class="icons-box">
+        <a href="https://www.avanade.com/pt-br"><img class='icon-item' src="./assets/link.png" /></a>
+        <a href="https://www.facebook.com/AvanadeBrasil"><img class='icon-item' src="./assets/facebook.png" /></a>
+        <a href="https://twitter.com/Avanade"><img class='icon-item' src="./assets/twitter.png" /></a>
+        <a href="https://www.linkedin.com/company/avanade/"><img class='icon-item' src="./assets/linkedin.png" /></a>
+      </div>
+      <div id='video-wrap' class="box div-video">
+        <div class="align-video-info">
+          <video id='video' class='video-tag' autoplay muted></video>
 
-            <div class="modal-div">
-              <i class="fas fa-info-circle infos"></i>
-              <div id="myModal" class="modal">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Dicas ao tirar sua foto</h2>
-                  </div>
-                  <div class="modal-body">
-                    <p>Face frontal livre</p> 
-                    <p>Não utilizar óculos escuros</p> 
-                    <p>Tente garantir que haja boa iluminação</p>
-                  </div>
+          <div class="modal-div">
+            <i class="fas fa-info-circle infos"></i>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Dicas ao tirar sua foto</h2>
+                </div>
+                <div class="modal-body">
+                  <p>Face frontal livre</p>
+                  <p>Não utilizar óculos escuros</p>
+                  <p>Tente garantir que haja boa iluminação</p>
                 </div>
               </div>
             </div>
-            
           </div>
+
         </div>
+      </div>
 
-        <div class="box">
-          <canvas id='canvas' width="640" height="520"></canvas>
-        </div>
+      <div class="box">
+        <canvas id='canvas' width="640" height="520"></canvas>
+      </div>
 
-        <p id='login-error' class="color-error"></p>  
+      <p id='login-error' class="color-error"></p>
 
-        <div id='controller'>
-          <button id='snap'>Login</button>
-        </div>
-      </main>
-      
-      <script src="index.js" type="module"></script>
-      <script src="https://kit.fontawesome.com/11e9e029cd.js" crossorigin="anonymous"></script>
-      
-      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
-      <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <div id='controller'>
+        <button id='snap'>Login</button>
+      </div>
+    </main>
 
-      <script>
-        var firebaseConfig = {
-          apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
-          authDomain: "talent-avanade.firebaseapp.com",
-          databaseURL: "https://talent-avanade.firebaseio.com",
-          projectId: "talent-avanade",
-          storageBucket: "talent-avanade.appspot.com",
-          messagingSenderId: "331987033642",
-          appId: "1:331987033642:web:2328eda6b243569713ed53"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-      </script>
-    </body>
-  </html>
+    <script src="index.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/11e9e029cd.js" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBwP-03HVEEAhvdo-4ZR1wQDeJwKHRZKtM",
+        authDomain: "talent-avanade.firebaseapp.com",
+        databaseURL: "https://talent-avanade.firebaseio.com",
+        projectId: "talent-avanade",
+        storageBucket: "talent-avanade.appspot.com",
+        messagingSenderId: "331987033642",
+        appId: "1:331987033642:web:2328eda6b243569713ed53"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </body>
+
+</html>
