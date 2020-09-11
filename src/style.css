@@ -73,7 +73,8 @@ img.img {
   justify-content: center;
 }
 
-#snap, .home-page {
+#snap,
+.home-page {
   background: #A50646;
   border-radius: 5px;
   border-style: none;
