@@ -60,7 +60,20 @@ img.img {
   display: none
 }
 
-#snap {
+.btn-home {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 5vw;
+}
+
+.register-div {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+
+#snap, .home-page {
   background: #A50646;
   border-radius: 5px;
   border-style: none;
@@ -71,6 +84,10 @@ img.img {
   outline: none;
   padding: 10px;
   width: 22%;
+}
+
+a {
+  text-decoration: none;
 }
 
 #controller {
@@ -190,4 +207,14 @@ img.img {
 
 .modal-body p {
   padding: 10px;
+}
+
+form.get-name {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.label-name {
+  padding-right: 8px;
 }

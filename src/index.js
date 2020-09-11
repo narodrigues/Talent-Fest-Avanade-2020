@@ -6,14 +6,14 @@ const modal = document.getElementById("myModal");
 const btn = document.querySelector(".infos");
 const span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -64,12 +64,15 @@ const getNameUser = response => {
     .catch(error => console.log('error', error));
 }
 const messageToUser = userData => {
-  const modal = document.querySelector('.modal-div')
+  const modal = document.querySelector('.modal-div');
+  const register = document.querySelector('.register-div');
+
   const userName = userData.name
   video.style.display = 'none';
   snap.style.display = 'none';
-  infoLogin.classList.add('login-message')
-  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`
+  infoLogin.classList.add('login-message');
+  register.style.display = 'none';
+  infoLogin.innerHTML = `Que bom ver você novamente, ${userName}! (:`;
   modal.style.display = 'none';
 }
 
