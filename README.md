@@ -7,7 +7,6 @@
 - [3. Face API](#3-Face-API)
 - [4. Site](#4-Site)
 - [5. Base de personagens](#5-Base-de-personagens)
-- [6. Base de personagens](#5-Base-de-personagens)
 
 ---
 
