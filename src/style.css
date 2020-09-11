@@ -159,3 +159,10 @@ img.img {
 .modal-body p {
   padding: 10px;
 }
+
+
+
+form.get-name {
+  display: flex;
+  justify-content: center;
+}

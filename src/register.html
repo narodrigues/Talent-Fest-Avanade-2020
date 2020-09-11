@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Face Login</title>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <main>
+        <header class="box">
+          <img class="logotype" src="assets/avanade-logo.png">
+        </header>
+
+        <div class="register-div">
+          <button><a href="./index.html" class='register'>Voltar</a></button>
+        </div>
+
+        <div id='video-wrap' class="box div-video">
+          <div class="align-video-info">
+            <video id='video' class='video-tag' autoplay muted></video>
+          </div>
+        </div>
+
+        <div class="box">
+          <canvas id='canvas' width="640" height="520"></canvas>
+        </div>
+
+        <form class="get-name">
+          <label for="name">Digite seu nome</label><br>
+          <input type="text" id="name" name="name" class="input-name">
+        </form>
+
+        <p id='login-error' class="color-error"></p>  
+
+        <div id='controller'>
+          <button id='snap'>Tirar foto</button>
+        </div>
+      </main>
+      
+      <script src="register.js" type="module"></script>
+    </body>
+  </html>
